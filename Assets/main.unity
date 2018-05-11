@@ -186,6 +186,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 221223346}
+  - component: {fileID: 221223347}
   m_Layer: 0
   m_Name: Nail
   m_TagString: Untagged
@@ -205,9 +206,24 @@ Transform:
   m_Children:
   - {fileID: 534688467}
   - {fileID: 2049349476}
+  - {fileID: 1034923683}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &221223347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 221223345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1b13696134a2a479922cf6f9e9acd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathRenderer: {fileID: 1406272417}
+  speed: 0
+  qFade: 5
 --- !u!1 &370476454
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +294,7 @@ Transform:
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534688463
 GameObject:
@@ -378,6 +394,7 @@ GameObject:
   - component: {fileID: 1034923682}
   - component: {fileID: 1034923681}
   - component: {fileID: 1034923680}
+  - component: {fileID: 1034923684}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -441,13 +458,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1034923679}
-  m_LocalRotation: {x: 0.37460655, y: 0, z: 0, w: 0.9271839}
+  m_LocalRotation: {x: 0.37460655, y: -0, z: -0, w: 0.9271839}
   m_LocalPosition: {x: 0, y: 11, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 221223346}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 44, y: 0, z: 0}
+--- !u!114 &1034923684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1034923679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7ebf17bfd36074387bd516da98c1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastPoint: {fileID: 221223347}
+  camera: {fileID: 1034923682}
 --- !u!1 &1406272416
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,10 +507,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMarks: 1024
   minDistance: 0.01
-  width: 0.05
-  groundOffset: 0.02
+  width: 0.03
+  groundOffset: 0.001
   textureOffsetY: 0.05
-  fadeOutRange: 0.5
+  fadeOutRange: 1
   material: {fileID: 2100000, guid: cf21ee7640ef75f44a3b26ece08424a2, type: 2}
 --- !u!4 &1406272418
 Transform:
@@ -493,7 +523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049349475
 GameObject:
