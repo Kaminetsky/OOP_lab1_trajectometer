@@ -12,6 +12,6 @@ public class CameraScaler : MonoBehaviour {
 	}
 
 	void Update () {
-		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize,Mathf.Clamp(Mathf.Pow((lastPoint.speed), 2), 0.8f, 8.0f), Time.deltaTime*3);
+		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize,Mathf.Clamp(Mathf.Pow((lastPoint.speed), 2), 0.8f, 3.0f), Time.deltaTime*3);
 	}
 }

@@ -8,30 +8,27 @@ public class PathLastPoint : MonoBehaviour {
 	public float speed = 0f, qFade = 1000f;
 	private int lastPathPoint = -1;
 
-	Vector3 lastPos;
+	Vector3 lastPos = Vector3.zero;
+	Vector3 currentInput = Vector3.zero;
 
-	private AccelerometerUtil accelerometerUtil;
-
-	// Use this for initialization
 	void Start(){
-		accelerometerUtil = new AccelerometerUtil();
-		lastPos = Vector3.zero;
+		Input.gyro.enabled = true;
 	}
 
 	void FixedUpdate () {
 
-		speed = Vector3.Distance(lastPos, transform.position)*4;
+		speed = Vector3.Distance(lastPos, transform.position)*4f/Time.deltaTime;
 		lastPos = transform.position;
 
-		//Debug.Log("Speed is " + speed);
+		Debug.Log(Input.gyro.userAcceleration.normalized);
 
 		if(speed > 0.001f) lastPathPoint = pathRenderer.AddPathPoint(transform.position, speed*10,lastPathPoint);
 		else lastPathPoint = -1;
 
-		Vector3 currentInput = accelerometerUtil.LowPassFiltered();
-
-		transform.Translate(currentInput.x/qFade, 0f, currentInput.z/qFade);
-
+		gameObject.GetComponent<Rigidbody>().AddRelativeForce(
+			Input.gyro.userAcceleration.x * 1000f,
+			0f,
+			Input.gyro.userAcceleration.z * 1000f
+		);
 	}
-
 }
